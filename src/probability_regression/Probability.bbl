@@ -1,0 +1,15 @@
+\begin{thebibliography}{}
+
+\bibitem[Drezner and Farnum, 1993]{GBD}
+Drezner, Z. and Farnum, N. (1993).
+\newblock A generalized binomial distribution.
+\newblock {\em Communications in Statistics - Theory and Methods},
+  22(11):3051--3063.
+
+\bibitem[Frigyik et~al., 2010]{dirichlet}
+Frigyik, B.~A., Kapila, A., and Gupta, M.~R. (2010).
+\newblock Introduction to the dirichlet distribution and related processes.
+\newblock {\em Department of Electrical Engineering, University of Washignton,
+  UWEETR-2010-0006}, (0006):1--27.
+
+\end{thebibliography}

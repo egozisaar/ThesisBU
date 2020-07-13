@@ -1,0 +1,269 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}          
+\usepackage{graphicx}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{setspace}\onehalfspacing
+\usepackage[loose,nice]{units}
+\usepackage{array}
+\usepackage[super]{nth}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+ 
+\title{Prestigious Transmission - A Quantitive Approach}
+\author{Saar Egozi}
+\date{Summer 2019}
+ 
+\begin{document}
+\maketitle
+ 
+ In the following paper we will present an approach to represent prestige, its components, and how is it compared to other biases.
+ In \textit{Boyd and Richerson} \cite{evolutionBook} chap.5 there are 3 types of biases to social transmission described: (1) \textbf{Direct bias}, which means that an individual (a model) possess a certain trait and another individual (the copier) tries to inherit that trait. The copier might want to copy the trait for many reasons, for example - resources, sexual advantage etc... 
+ 
+ In the book, the example given is of a bystander watching a Ping-Pong match. A direct bias is defined when the copier observe 2 models, with different paddle grips. Without any regard to the game's score (i.e who wins and who loses), the copier will try both grips, and will choose the one that fits him best (i.e, leads him to better results). (2) \textbf{Frequency-dependent bias}, contains all biases
+ that transmitted in a disproportion to the frequency a trait is found in the community. For example - if the group contains only 3 models, and 2 of them demonstrate a certain trait, then it is said to be frequency biased if
+ an outside copier will have a higher probability than $\frac{2}{3}$ to copy the trait, disregarding any other traits the 2 models might have, other than the fact they are $\frac{2}{3}$ of the population. 
+ Last is the (3) \textbf{Indirect bias}, which as the name suggests, meaning copying a trait \textit{indirectly}. Continuing with the Ping-Pong example, now instead of observing both players grips' and trying them both (which if applied to other domains, like choosing a career by trying several of them, could be very costly, and trial and error might not be a practical approach), the copier will try to copy what seems to be helpful in order to get better, based on other indicators which are easier to access and observe - for example, the winner of the match. If one of the models repeatedly wins the matches, a copier might induce that this model is more successful, and therefore will only copy the traits of the winner. But, the authors add, not just the traits relevant to the model's win directly, since the copier cannot differentiate completely between them, since he put less effort in observation. So now instead of copying the paddle grip of the winner alone, he might also copy his posture, his clothes even etc\dots
+ 
+ In the book, Boyd and Richerson suggest that the indirect bias is in a way a bias based on the \textit{prestige} of an individual. (\cite{evolutionBook} chap.8 pages 241-242)
+ The approach suggested here is inspired by the models and biases presented in \cite{evolutionBook}, but tries to better evaluate said \textit{indirect bias} by adding more complexities and variables to the models and equations.
+ In a nutshell, our idea of an indirect bias could be expanded by adding another major factor to the evaluation of one's prestige - who else copied said model, and how many did. We choose to call this additional factor \textit{Influence}, and will be accurately described in the equations below.
+ This new bias, which is composed both by the already covered original \textit{indirect bias}, and by the model's \textit{influence}, will be named as the \textbf{Prestige bias}.
+
+ \section{The Model traits} \label{model traits}
+ In \cite{evolutionBook} chap.8 ,pages 243-244, we see a definition of the indirect bias described before, by defining several traits each individual in the population possess.
+ In contrary to the book, we chose to separate the traits to 2 types - the model traits and the copier traits.
+ Although in the models we suggest later on, each individual is both a model and a copier (sometimes both at the same time, depends on the model), we still find it more semantically comfortable to look at the traits in 2 groups, to better describe the forces included in the Prestige bias we describe.
+ \begin{itemize}
+  \item \textbf{Indicator trait - $A$:} Same as described in \cite{evolutionBook}, this trait is the \textbf{viewed} representation of an individual success in a certain aspect. (success isn't yet defined
+  at this point, but it could mean high survivability, or high fitness etc\dots) This trait value is a real number.
+  
+  In order to give an example for such trait, we need to describe a more complicated scenario than the Ping-Pong match. For example, if an individual who is not familiar with Einsteins Relativity Theory finds himself near a gathering where several individuals argue over the value of speed of light, the individual might tend to agree with the more confident, more composed, or even better looking individual, even if he claims  $c=4,000 ,ph$, since he is not able to precisely evaluate the arguments of all of the sides. The indicator trait would be the one the bystander is influenced by. (for example, his model could be the loudest of the models)
+  This trait value is a combination of the individual's real trait capabilities and the copier's perception of the model's capabilities. The difference and usage in the equations of the two is explained in section (\ref{copier traits}).
+   
+  \item \textbf{Indirectly biased trait - $B$}: In \cite{evolutionBook} this trait is described simply as another trait that the model possess, and is copied together with the indicator trait, just because it is found with it, and not because the copier values it or views it as the source of the model's success.
+  
+  This trait could be the subject of several interesting scenarios, for example when adding fitness or survivability meanings to the models - so the trait could be maladaptive or putting the carrier in danger, but as said in \cite{evolutionBook} chap.8 page 279 (the conclusion) it can still be wildly spread in the population, in contrast to the classic Natural Selection approach. The example for this trait thats given in the book is traits like clothing style, pronunciation and world beliefs. In short, Boyd and Richerson mainly examine the option where the indirectly biased trait is mostly a (negative) side-effect of the indicator trait.
+
+  In this research, we would like to examine a different approach. We still maintain the concept of the indirectly biased trait (which means that an individual won't evaluate a model's prestige by it), but instead of a maladaptive side-effect, we would also examine the possibility that the $B$ trait is actually the real source of success. So the goal of a naive copier is to copy this trait, but isn't capable of evaluating the actual cause, which is why he is choosing a model based on the Indicator trait (and by its \textit{Influence}, explained below), and will copy the $B$ trait with varying success.
+  So - while the mathematical representation might be similar, the meaning in the more complex model that described in section \ref{models} might be different than the one suggested in \cite{evolutionBook}.
+  This means that unlike \cite{evolutionBook}, a more appropriate example for a $B$, going back to the example we gave before (of the speed of light discussion), would be the knowledge or the true solution to the issue. The copier isn't familiar with the domain too well, so he cannot evaluate which of the individuals is right (and therefore more knowledgable, i.e. - possess a higher $B$), so he will evaluate $A$ instead (who is speaking more, for example).
+  \end{itemize}
+    
+  Although this is a solution that might be worth looking into, we chose to choose a different approach. In \cite{evolutionBook} the preference trait coalesced well with the transmission model they chose to use. In chap.3 of \cite{evolutionBook} a suggested method of transmission from 1 generation to the next is using a sort of a "blending model". In simple words, we evaluate the "importance" or "relative contribution" of each model in the parent generation (by dividing each model's evaluated trait, plus a small basic weight with the sum of them all). In the indirect bias model, the evaluation function used is the preference trait, applying to the indicator trait value of the model.
+  In this paper we wanted to take a more realistic approach, since we think that a copier inherits a social trait from single model picked by its weight, rather than a "blend" of all the model. Our first goal however, is to show that both approaches achieve similar results when observing an entire population, rather than a single individual in it. Our main drive is that when blending the models, the copier is exposed to all available models in a way. Of course many of them could be weighted really low by the preference trait function, but it still does mean that the copier is aware of them all. We think that a random weighted choice better describes the situation. Of course it is not realistic itself, since in our day to day we obviously don't inherit a social trait from a single model, rather than a blend of some, but still this methodology better fits our needs.
+  
+  However, we do not neglect the idea that each copier might appreciate the models differently. This is a flexibility we think is important to keep. We do that by proposing the following traits:
+  
+   \begin{itemize}
+   \item Influence - $R$: The influence of a model is defined by his copiers. This backward definition will have different meanings in different models. Since we start by first comparing our most basic model, described in subsection (\ref{basic model}), this trait has no meaning. However, after we advance from the comparison phase, this trait is the most major part differentiating our approach from Boyd's and Richerson's. Simply put, we suggest that other than the Indicator trait, there is another influential factor when trying to evaluate one's 'prestige', and this is influence of a model on others. In its most basic form, Influence as we define it, is the number of copiers a model has. When moving on to more complex models, like subsections (\ref{horizontal model}) and (\ref{cyclic model}), where transmission is not discrete between generations (i.e horizontal transmission is allowed, either in a generational model, or in a cyclic one). In such models we would use a more complex version of Influence, which takes into consideration the Influence of the copiers, rather than the simple sum of the amount. This means by definition that the Influence trait is a dynamic value which varies either between generations or even during them. In the more complex models Influence is defined by a recursive equation.
+   As opposed to the indicator trait, we assume this trait is measured accurately. This assumption may be dropped in more complicated models as needed, but isn't neccesarily unrealistic as it is currently defined.
+  \item Prestige - $P$: The mentioning of "prestige" can be found in \cite{evolutionBook} chap.8 introduction section (pages 241-242), when Boyd and Richerson suggest that "In short, people value prestige, and they do things [...] because such behaviours are effective in gaining prestige". Them as well believed that prestige is a significant driving bias when choosing a model to copy. Unlike in \cite{evolutionBook}, we choose to evaluate a model's prestige not only by their Indicator trait value together with the "importance" the copier assign to the model, but instead we think of prestige as a combination of the model's Indicator trait value, along with its Influence value. Those together are could be weighted differently between copiers, but the simplest model we suggest has global weights (each of the copiers values the Influence and the Indicator value the same as the rest).
+\end{itemize}
+
+ \section{The Copier traits} \label{copier traits}
+ 
+ The separation of the following traits is semantic only. In our models all the individuals possess both model traits and copier traits. The copier traits are mainly regarding the copiers perspective of the models. These traits allow us to differentiate a certain model between copiers' views, much like in real life. (we all see a certain individual in different ways, and assign him with different levels of behaviours and skills)
+ The following traits therefore play part in evaluating one's prestige "score", and once a model was chosen, how well the copier will copy the traits.
+ \begin{itemize}
+ 
+ \item Preference trait - $A^*$: In to \cite{evolutionBook}, this trait is described as a measurement of how much a copier would value a certain model's Indicator value. Simply put, "higher isn't always better". This trait represents the optimal $A$ (indicator trait value) a model can have. In the models Boyd and Richerson suggested, this value is actually homogenous within the population, meaning that all the individuals admire the same trait value. This trait is changed only according to the trait itself. For example - more money can certainly fit the rule "more is more prestigious", but number of children for example, will probably be a constant, on the intermediate scale. Although it is extremely likely to assume all the copiers might admire the same indicator trait value, it is not trivial not necessarily the case all the time. Even number of children is a good example. Yes, there probably is a consensus of the ideal number, but it is still a ball park. This means that we might also want to test the option of multiple optimal values of a trait in the population. More precisely - each copier can have its own optimal value he admires.Simply put, not every copier will appreciate the same traits value equally.
+ 
+ \item Bias function - $\beta$: This function evaluates the "importance" each model has in the copier's view, and therefore affects each model's probability to be chosen. We will mostly use the same function used in \cite{evolutionBook} (a gaussian bias function), especially when comparing our models to Boyd's and Richerson's. This function takes $A^*,A$ (the copier's preference trait and the model's indicator trait accordingly) as arguments. Later we explain what the function is more accurately, but its general purpose is to adjust the copier's choice of a model to its \textit{Preference}.
+  
+  \item Indicator trait error - $e_{A}$: Much like $e_{1}$ in \cite{evolutionBook} chap.8 page 249, this parameter is a random variable of a bivariate normal distribution with a means of zero, which indicates the error in learning the Indicator trait from a picked model.
+   This parameter is taken into account when the copier evaluates the model's indicator trait value. It's purpose is to address the simple fact that we can't accurately evaluate a model's trait value. (sometimes we can, and in those cases the error would simply be zero)
+  
+  \item Indirect biased trait error - $e_{B}$: Same as $e_{A}$, this variable is also a random variable picked from a normal distribution, and means exactly the same, apart from trait it addresses. This variable is the error when a copier tries to evaluate the indirect biased trait $B$ from the model he chose. Same as Boyd and Richerson, in our simpler models we treat the two error variables as independent, although in real life they might covary.
+  \end{itemize}
+  
+  The evaluation of a model by the copier, will be performed accordingly:
+  \begin{equation}\label{transmission}
+	(A',B') = (A + e_{A}, B + e_{B})
+ \end{equation}
+ Where
+ \begin{conditions}
+A & The indicator trait value of the chosen model \\
+B & The indirect biased trait value of the chosen model \\
+A' & The indicator trait value of the copier \\
+B' & The indirect biased trait value of the copier \\
+e_{A} & The indicator trait error \\
+e_{B} & The indirect biased trait error
+ \end{conditions}
+  
+  \begin{itemize}
+  \item Indicator trait weight - $\alpha$: Unlike the Preference trait, this parameter signifies the importance the Indicator trait possess in the copier's eyes, \textit{compared to the Influence}, without any regard to some absolute value. This trait takes place only \textit{after} the copier evaluates the model's traits. 
+  \item Influence weight - $\rho$: Very similar to the Indicator trait, but representing the weight of the Influence trait.
+  \end{itemize} 
+    The model could be highly simplified by generalising the weights and errors instead of assigning a different value to each of the copiers.
+
+  In order to clarify the meaning of the traits mentioned, we will present several equations:
+  \begin{equation}\label{prestige}
+	P_{ij} = \alpha_{i}(\beta(A_{j})) + \rho_{i} R_{j} + \varepsilon_{P}
+ \end{equation}
+ Where:
+  \begin{conditions}
+  i & The index of the copier in its generation \\
+  j & The index of the model in its generation \\
+ P_{ij} & The prestige score copier $i$ assign to model $j$ before picking one randomly based on its importance \\
+ \end{conditions}
+  (the prestige score represents this importance) 
+ \begin{conditions}
+A_{j} & The indicator \textit{percieved} value of model $j$ \\
+R_{j} & The influence trait value of model $j$ \\
+\alpha_{i} & The indicator weight of copier $i$ \\
+\rho_{i} & The influence weight of copier $i$ \\
+  \beta & The bias function
+  \end{conditions}
+  (for example :  $\beta(x) = \frac{1}{x}$ which will make the copier value the models with the lowest indicator value, although such function might not be too realistic) 
+  \begin{conditions}
+ \varepsilon_{P} & A parameter meant to add "noise" to the copier's evaluation.
+ \end{conditions}
+  This will be mainly used to control the "difficulty" to evaluate a model's score (for example, its harder to evaluate direct success, so the noise assigned to a model that the evaluations are based on success directly, i.e, a direct bias model will be higher from the one assigned to the indirect models we suggest) \\
+ 
+ If needed, this equation could be further enhanced with the following:
+  \begin{equation}\label{influence preference}
+	P_{ij} = \alpha_{i}(\beta(A_{j})) + \rho_{i} (\theta(R_{j})) + \varepsilon_{P}
+ \end{equation}
+ Where:
+  \begin{conditions}
+ \theta & A bias function for the Influence trait.
+ \end{conditions}
+
+ 
+  As seen in the equations above, if choosing to evaluate the model's prestige using equation (\ref{prestige}), this means that a model will be prestigious if he has both a 'correct' (close to the ideal) indicator value and a lot of influence, regardless of the weights of the copier. This fact is another corner stone in the difference between our models to Boyd's and Richerson's.
+  It does however, allow us to compare different approaches regarding the prestige, so a model with a good indicator value only will not be deemed prestigious by all the copiers.
+  It  is also possible to address the possibility that the influence a model has might has different preferences as well (currently, higher influence means higher prestige). This could be done by applying the same idea to the influence trait value, but this variation is less realistic and applies to less real life scenarios. (In case of influence, the common case is "more is better")
+ 
+\clearpage \section{Models} \label{models}
+\subsection{Indicator Only Model}
+Our first step before moving onto complicated models involving a lot of different variations, we must devise a model that would be close enough to Boyd's and Richerson's model suggested in \cite{evolutionBook} chap.8. The model we suggest is the following:
+Our model contains $n$ individuals in a generation. The generations are separate, and transmission is oblique only. (no vertical or horizontal transmissions, same as in \cite{evolutionBook})
+In \cite{evolutionBook} pages 247-252, the authors generalise the "blending model" as they call it to calculate the transmission of more than a single trait. The second assumption is that the value of the Indicator trait that affects the attractiveness of the individual, now also affects the attractiveness of the indirect biased trait. Simply put, when a copier will evaluate the importance of the model by its Indicator trait value, he will copy the indirectly biased trait with the same weight. Similar to Boyd and Richerson, our trait values are also continuous. In their model, each naive individual faces a generation of $n$ models, and evaluates each of them with an error of $e1$ for the indicator trait evaluation and $e2$ for the indirectly biased trait. Both $e1$ and $e2$ are random variables with a bivariate normal distribution $N(e1,e2)$ with means equal to zero. Boyd and Richerson suggest that the errors in estimation of the traits may covary, but for simplicity they treat them as independent variables, so in order to minimise the differences (except for the transmission method, which is our main goal at this phase), we will treat our error variables the same. Our first generation of models is also randomly chosen from a normal distribution, same as in \cite{evolutionBook}. Lastly, we will also use a "bias function", much like $\theta(-)$ and $\beta(-)$ in \cite{evolutionBook} page 253. We use the same functions as Boyd and Richerson - the functions transformation might be different in magnitude but their effect is in the same "direction". (if $\theta$ is enlarging the importance of the model's indicator trait, $\beta$ will do the same but in either a larger or smaller scale. Mainly one will not negate the other's effects on the model's attractiveness)
+When using a quantitive trait value, Boyd and Richerson (chap.5, page 142) used a gaussian bias function, in the model of the direct bias (but later used in the indirect bias model as well). They defined $\beta(-)$ as follows (they used $Z$ instead of $A$ for the indicator trait value):
+
+\begin{equation}\label{bias function}
+	\beta(A_{i}) = be^{\frac{-(A_{i} - A^*)^2}{2J}}
+\end{equation}
+Where:
+\begin{conditions}
+A_{i} & The indicator trait value\\
+A^* & The optimal trait value\\
+J & The strength of the function's effect\\
+b & Constant such that $b << 1$
+\end{conditions}
+We can see that the smaller the $J$, the more the distance between the ideal value and the existing value matters. $b$ is a simple constant in order to keep the bias small, as one of the assumptions of Boyd and Richerson. 
+Our goal is to divert in one calculation only from the original model -  instead of using the blending model described above in short and in \cite{evolutionBook} chap.3 in full, we use a weighted random choice of model, when its weight/probability to be chosen is based on its Indicator trait, the copier's errors in evaluation ($e_{A},e_{B}$), and its bias function.
+In our model, the prestige score calculation will be done using equations (\ref{bias function}) ,(\ref{transmission}) and (\ref{prestige}):
+\begin{equation}\label{indicator only}
+	P_{ij} =\frac{\alpha_j (1+\beta(A_{j} + e_{iA}))}{\sum\limits_{j=1}^{n} \alpha_j(1+\beta(A_{j} + e_{iA}))}
+\end{equation}
+Where:
+\begin{conditions}
+i & The index of the copier\\
+j & The index of the model\\
+A_j & The real indicator value of model $j$\\
+\beta(x) & $be^{\frac{-(x - A^*)^2}{2J}}$\\
+e_{iA} & The error when evaluating the model's indicator trait value \\
+\alpha_j & The social rank of model $j$
+\end{conditions}
+Boyd and Richerson included a basic weight for each model, called "social rank", with the purpose to support the claim that the indicator trait alone isn't enough to determine the prestige bias of a model.
+In our comparison model, we keep that weight, but later on when we include Influence in our equations, the basic weight becomes redundant. According to \cite{evolutionBook}, this social rank modifies the bias differently for the indicator bias calculation, and for the indirect bias calculation. Since there is no evaluation for the indirect bias when choosing a model, we don't need 2 different basic weights to our models, so $\alpha_j$ suffices.
+There is no example for the social ranks in the continuous traits models in \cite{evolutionBook}, so we simply will assign a random value from $[0,1]$ and scale it to $\beta$ so that the social rank will not dwarf the indicator trait contribution to the score. We could look at the social rank as: $\alpha_j=a_j * \beta(A)$ where $a_j$ is chosen at random when generating the model $j$, and is picked randomly from the range $[0,1]$.
+We divide the score with the sum of all the scores to normalise the result to a valid probability.
+For every copier $j$ in each new naive generation, we calculate the score of each model $i$ in the old generation with equation (\ref{indicator only}). For each generation born we are left with a vector in the size of $n$ (generation size), for each of the copiers (also $n$ copiers). Each copier then choose a model randomly, with a probability $P_{ij}$ (where $\sum\limits_{j=1}^{n} P_{ij} = 1$), and then inherits its indicator trait value ($A$) and indirectly biased trait value ($B$) as perceived by the copier, utilising equation (\ref{transmission}) once more:
+  \begin{equation}
+	(A_i,B_i) = (A_j + e_{iA}, B_j + e_{iB})
+ \end{equation}
+ 
+Our main measurement for comparison would be the mean value of each of the traits in the population after many generations pass. This alternative transmission method was also mentioned in \cite{evolutionBook} chap.3 page 76 as an appropriate replacement for the blending model. It is known that according to the \textit{law of large numbers} assuming that the population was infinite ($n \rightarrow \infty$) then the sample average converges to the expected value. In our model, the expected value of a trait (either indicator or indirect) when copier $i$ is choosing a model is: $E[X] = \sum\limits_{j=1}^{n} A_j P_{ij}$. This is the exact formula for the blending transmission. Of course in our model $n$ is finite, which is why the need for a simulation is due.
+
+ \subsection{Basic model - oblique transmission only}\label{basic model}
+ The next step, once we're able to compare our results to those of Boyd's and Richerson's, would be to add the most basic form of influence when choosing a model.
+ Now, after changing the way of transmission to \textit{choosing} a model, we can easily track how many copiers copied a certain model, and observe it in several ways. The most basic one is a simply counter. In this model every time a copier chooses a model to copy, we increment the counter $C_i$ of model $i$ ($i$ is the index of the model, out of all the models in a certain generation). Now with each copier the "score" or prestige of the model will rise, and his probability to be chosen by other copiers will rise.
+We can test several scenarios in this model: (1) Comparing the differences between weights values (the indicator weight and influence weight are homogenous in the population). (2) Using inherited weights instead of global (homogenous). (3) Using different bias functions ($\theta$).
+
+\iffalse
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.8\linewidth}
+    \includegraphics[width=\linewidth]{../../graphs/BasicModelSmallInitDelta001.png}
+    \caption{Small init delta (0.2\%)}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.8\linewidth}
+    \includegraphics[width=\linewidth]{../../graphs/BasicModelLargeInitDelta1.png}
+    \caption{Large init delta (20\%)}
+  \end{subfigure}
+  \caption{Basic model - generation size is 100, max error is 1\% for all transitions, innovation chance is 50\% for all transitions, indicator and influence weights are equal}
+  \label{fig:basic model}
+\end{figure}
+
+\clearpage
+ \subsection{Noisy model}
+ This model is similar to the most basic model described above, with one difference only - we add a noise element to the scoring functions of success and prestige evaluation - $\varepsilon_{S}$ and 
+ $\varepsilon_{P}$ accordingly. To avoid a relatively changing noise, we normalise it to the average of the generation scores.
+ 
+ \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.65\linewidth}
+    \includegraphics[width=\linewidth]{../../graphs/NoisyModelSuccessNoise2SmallInitDelta.png}
+    \caption{Noise of success bias is 2\% of the mean score in that generation}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.65\linewidth}
+    \includegraphics[width=\linewidth]{../../graphs/NoisyModelSuccessNoise5PrestigeNoise1SmallInitDelta.png}
+    \caption{Noise of success bias is 5\%, prestige bias noise is 1\% of the mean score in that generation}
+  \end{subfigure}
+  \caption{Basic model - generation size is 100, max error is 1\% for all transitions, innovation chance is 50\% for all transitions, indicator and influence weights are equal, init delta is small (0.2\%)}
+  \label{fig:basic model}
+\end{figure}
+ 
+\fi
+ 
+ \subsection{Horizontal transmission model}\label{horizontal model}
+ In this version we allow horizontal transmission, so each time a copier becomes 'informed' (copied a model), he would become an optional model as well for the still naive individuals in its own generation.
+ After all the copiers became informed, the older generation will perish and the population size remains constant.
+ We need to bear in mind that the order of copiers is important if we combine if we choose to create the naive copiers with individual parameters.
+ When allowing horizontal transmission, we can now add a complexity to the Influence trait calculation. Instead of a simple counter the influence of a model will now also reflect the "value" of the copiers.
+ $R$ (influence) could be described as follows:
+ 
+ \begin{equation}
+	R_i = C_i \overline{R_{i_{copiers}}} + 1
+\end{equation}
+Where:
+\begin{conditions}
+R_i & The calculated Influence of a model\\
+C_i & The number of copiers\\
+\overline{R_{i_{copiers}}} & The mean influence of the copiers of model $i$
+\end{conditions}
+The function is recursive, which is why we have to add 1 to the calculation, otherwise the influence will never rise above zero.
+We can continue and develop this equation, when looking at:
+ \begin{equation}
+	\overline{R_{i_{copiers}}} = \frac{\sum\limits_{j=1}^{k} R_j}{C_i}
+\end{equation}
+\begin{conditions}
+j & The index of the copier\\
+k & The number of copiers of the model
+\end{conditions}
+We see we can omit the number of copiers and simply summarise all the copiers' influence (and their copiers' influence and so on) in order to calculate a model's influence:
+ \begin{equation}
+	R_i = \sum\limits_{j=1}^{k} R_j
+\end{equation}
+ 
+ \subsection{Cyclic transmission model}\label{cyclic model}
+ In this model the entire generational replacement approach is replaced by a cyclic one. We start with a population of size $n$, where all traits are chosen randomly from a normal distribution (just like in the other models). Now instead of creating a whole new generation of naive individuals to replace like before, each cycle one individual perishes and only 1 naive copier is born.
+ Death could be decided randomly and limited by age (each individual has a limited number of cycles he could remain a model), or could also be infused with an element of survivability. (for example - the higher the indirectly biased trait value is, the less likely for the individual to die)
+ In here we can use the recursive definition of Influence as well (and would probably make the most impact of all the other models.
+ 
+ \clearpage
+ \begin{thebibliography}{9}
+\bibitem{evolutionBook} 
+Culture and the Evolutionary Process.  
+Robert Boyd, Peter J. Richerson, 1988.
+
+\end{thebibliography}
+ 
+\end{document}

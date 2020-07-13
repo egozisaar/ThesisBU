@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: ResearchProposal.aux
+The style file: apalike.bst
+Database file #1: refs.bib
+Warning--there's a number but no series in transmissionVectorsBook
+Warning--empty publisher in dualEvolution
+You've used 15 entries,
+            1935 wiz_defined-function locations,
+            590 strings with 6812 characters,
+and the built_in function-call counts, 6609 in all, are:
+= -- 633
+> -- 319
+< -- 8
++ -- 112
+- -- 110
+* -- 603
+:= -- 1147
+add.period$ -- 47
+call.type$ -- 15
+change.case$ -- 127
+chr.to.int$ -- 15
+cite$ -- 17
+duplicate$ -- 227
+empty$ -- 445
+format.name$ -- 135
+if$ -- 1279
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 18
+newline$ -- 78
+num.names$ -- 45
+pop$ -- 119
+preamble$ -- 1
+purify$ -- 130
+quote$ -- 0
+skip$ -- 162
+stack$ -- 0
+substring$ -- 458
+swap$ -- 25
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 84
+warning$ -- 2
+while$ -- 50
+width$ -- 0
+write$ -- 195
+(There were 2 warnings)
